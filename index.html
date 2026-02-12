@@ -81,8 +81,23 @@ p { margin-bottom: 25px; font-size: 16px; }
 function trackLead(e){
     e.preventDefault(); // يمنع الانتقال المؤقت للسماح بالتسجيل
     ttq.track('Lead'); // يسجل الحدث كـ Lead في TikTok Pixel
-    alert('تم تسجيل الضغط على زر التليجرام ✅'); // رسالة تأكيد
-    window.open('https://t.me/roza_0191', '_blank'); // فتح التليجرام
+
+    // رسالة قصيرة تظهر في أعلى الصفحة بدون توقف
+    const msg = document.createElement('div');
+    msg.innerText = 'تم تسجيل الضغط ✅';
+    msg.style.position = 'fixed';
+    msg.style.top = '10px';
+    msg.style.right = '10px';
+    msg.style.background = '#0088cc';
+    msg.style.color = 'white';
+    msg.style.padding = '10px 15px';
+    msg.style.borderRadius = '8px';
+    msg.style.zIndex = '9999';
+    document.body.appendChild(msg);
+    setTimeout(()=> msg.remove(), 2000); // تختفي الرسالة بعد ثانيتين
+
+    // فتح التليجرام مباشرة
+    window.open('https://t.me/roza_0191', '_blank');
 }
 </script>
 
